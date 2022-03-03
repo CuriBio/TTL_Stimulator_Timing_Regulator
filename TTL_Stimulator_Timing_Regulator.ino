@@ -1,5 +1,5 @@
 unsigned long myTime; 
-unsigned long stimInterv = 100; //stim at this freq
+unsigned long stimInterv = 100; //stim at this freq (ms)
 unsigned long myTime2; // wait for this long
 unsigned long loop1on = 800; // pulse for this long
 unsigned long loop1off = 4200; 
@@ -20,12 +20,12 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.println(myTime3); 
+//  Serial.println(myTime3); 
   myTime2 = millis(); 
-  while (millis() - myTime3 < loop2on) { //
+  while (millis() - myTime3 < loop2on) { 
     myTime = millis(); 
-    while (millis() - myTime2  < loop1on) { // Run this for totDurEx2 milliseconds, then wait stimDur - totDur milliseconds
-      if (millis() - myTime >= stimInterv) { // Pulse every stimInterv over stimDur milliseconds, then wait stimDur - totDurEx milliseconds
+    while (millis() - myTime2  < loop1on) {
+      if (millis() - myTime >= stimInterv) { 
 
         myTime = millis();
         digitalWrite(outpin, HIGH);
